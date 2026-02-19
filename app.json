@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "LumiAffirm",
+    "slug": "lumi-affirm",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F0E6FF"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lumiaffirm.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F0E6FF"
+      },
+      "package": "com.lumiaffirm.app"
+    },
+    "web": {
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "scheme": "lumiaffirm"
+  }
+}
