@@ -12,7 +12,7 @@ import { useRouter } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
 import { useFreeTier } from '@/hooks/useFreeTier';
 import { getAffirmations } from '@/lib/storage/affirmations';
-import { COLORS, FREE_TIER_LIMIT } from '@/lib/utils/constants';
+import { COLORS, FREE_TIER_LIMIT, GRADIENTS, TEXT_SHADOW_LIGHT } from '@/lib/utils/constants';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function ProfileScreen() {
@@ -45,7 +45,7 @@ export default function ProfileScreen() {
 
   return (
     <LinearGradient
-      colors={[COLORS.lavender, COLORS.sky]}
+      colors={GRADIENTS.strong}
       style={styles.container}
     >
       <ScrollView contentContainerStyle={styles.content}>
@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: 'PlayfairDisplay-Regular',
     color: '#FFFFFF',
+    ...TEXT_SHADOW_LIGHT,
   },
   statsContainer: {
     paddingHorizontal: 24,
@@ -216,6 +217,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Inter-Regular',
     color: '#FFFFFF',
+    ...TEXT_SHADOW_LIGHT,
   },
   upgradeButton: {
     backgroundColor: COLORS.gold,
@@ -243,6 +245,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
     color: '#FFFFFF',
     textAlign: 'center',
+    ...TEXT_SHADOW_LIGHT,
   },
   settingsContainer: {
     paddingHorizontal: 24,
@@ -262,6 +265,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Inter-Regular',
     color: '#FFFFFF',
+    ...TEXT_SHADOW_LIGHT,
   },
   modalOverlay: {
     flex: 1,

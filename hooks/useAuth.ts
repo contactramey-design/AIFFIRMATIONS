@@ -27,12 +27,17 @@ export function useAuth() {
     return () => subscription.unsubscribe();
   }, []);
 
+  const getRedirectUrl = () => {
+    if (typeof window !== 'undefined' && window.location?.origin) {
+      return window.location.origin;
+    }
+    return 'lumiaffirm://';
+  };
+
   const signInWithApple = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'apple',
-      options: {
-        redirectTo: 'lumiaffirm://',
-      },
+      options: { redirectTo: getRedirectUrl() },
     });
     return { data, error };
   };
@@ -40,9 +45,15 @@ export function useAuth() {
   const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: {
-        redirectTo: 'lumiaffirm://',
-      },
+      options: { redirectTo: getRedirectUrl() },
+    });
+    return { data, error };
+  };
+
+  const signInWithEmail = async (email: string) => {
+    const { data, error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: getRedirectUrl() },
     });
     return { data, error };
   };
@@ -57,6 +68,7 @@ export function useAuth() {
     loading,
     signInWithApple,
     signInWithGoogle,
+    signInWithEmail,
     signOut,
   };
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
+import { COLORS } from '@/lib/utils/constants';
 
 export default function Index() {
   const router = useRouter();
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F0E6FF',
+    backgroundColor: COLORS.gradientStart,
   },
   text: {
     marginTop: 20,

@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
 import { PromptInput } from '@/components/home/PromptInput';
 import { CategoryChips } from '@/components/home/CategoryChips';
-import { COLORS, CATEGORIES } from '@/lib/utils/constants';
+import { COLORS, CATEGORIES, GRADIENTS, TEXT_SHADOW_LIGHT } from '@/lib/utils/constants';
 import { CategoryId } from '@/types';
 
 export default function HomeScreen() {
@@ -37,7 +37,7 @@ export default function HomeScreen() {
 
   return (
     <LinearGradient
-      colors={[COLORS.lavender, COLORS.sky]}
+      colors={GRADIENTS.strong}
       style={styles.container}
     >
       <View style={styles.content}>
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     marginHorizontal: 24,
     marginBottom: 8,
+    ...TEXT_SHADOW_LIGHT,
   },
   generateButton: {
     backgroundColor: COLORS.gold,

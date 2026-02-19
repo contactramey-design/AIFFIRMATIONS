@@ -12,7 +12,7 @@ import { useRouter } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
 import { getAffirmations, deleteAffirmation } from '@/lib/storage/affirmations';
 import { Affirmation } from '@/types';
-import { COLORS } from '@/lib/utils/constants';
+import { COLORS, GRADIENTS, TEXT_SHADOW_LIGHT } from '@/lib/utils/constants';
 import { Ionicons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
@@ -65,7 +65,7 @@ export default function LibraryScreen() {
   if (loading) {
     return (
       <LinearGradient
-        colors={[COLORS.lavender, COLORS.sky]}
+        colors={GRADIENTS.strong}
         style={styles.container}
       >
         <View style={styles.centerContainer}>
@@ -78,7 +78,7 @@ export default function LibraryScreen() {
   if (affirmations.length === 0) {
     return (
       <LinearGradient
-        colors={[COLORS.lavender, COLORS.sky]}
+        colors={GRADIENTS.strong}
         style={styles.container}
       >
         <View style={styles.centerContainer}>
@@ -100,7 +100,7 @@ export default function LibraryScreen() {
 
   return (
     <LinearGradient
-      colors={[COLORS.lavender, COLORS.sky]}
+      colors={GRADIENTS.strong}
       style={styles.container}
     >
       <View style={styles.header}>
@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontFamily: 'PlayfairDisplay-Regular',
     color: '#FFFFFF',
+    ...TEXT_SHADOW_LIGHT,
   },
   list: {
     padding: 16,
@@ -240,14 +241,16 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
     marginBottom: 8,
+    ...TEXT_SHADOW_LIGHT,
   },
   emptySubtitle: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',
     color: '#FFFFFF',
-    opacity: 0.8,
+    opacity: 0.95,
     textAlign: 'center',
     marginBottom: 32,
+    ...TEXT_SHADOW_LIGHT,
   },
   generateButton: {
     backgroundColor: COLORS.gold,
@@ -265,5 +268,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Inter-Regular',
     color: '#FFFFFF',
+    ...TEXT_SHADOW_LIGHT,
   },
 });
